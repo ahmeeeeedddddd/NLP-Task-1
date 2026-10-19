@@ -1,0 +1,12 @@
+# Datasets
+*.csv
+
+# Model & training artifacts
+*.keras
+*.h5
+*.weights.h5
+*.pkl
+
+# Python
+__pycache__/
+*.py[cod]

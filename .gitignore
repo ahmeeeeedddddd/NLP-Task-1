@@ -1,6 +1,3 @@
-# Datasets
-*.csv
-
 # Model & training artifacts
 *.keras
 *.h5

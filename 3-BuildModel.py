@@ -20,6 +20,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Embedding, LSTM, Dense, Dropout
 from tensorflow.keras.optimizers import Adam
+from tensorflow.keras.callbacks import EarlyStopping
 import pickle
 import json
 
@@ -69,7 +70,8 @@ model.compile(loss="binary_crossentropy",
               metrics=["accuracy"])
 model.summary()
 
-history = model.fit(X_train_pad, y_train, epochs=5, batch_size=64, validation_split=0.1)
+early_stop = EarlyStopping(monitor="val_loss", patience=1, restore_best_weights=True)
+history = model.fit(X_train_pad, y_train, epochs=5, batch_size=64, validation_split=0.1, callbacks=[early_stop])
 
 loss, acc = model.evaluate(X_test_pad, y_test)
 print(f"Test accuracy: {acc:.2%}")

@@ -1,0 +1,2 @@
+python-interpreter-path = "D:/Gpu-shit/nasa/Scripts/python.exe"
+ignore-missing-imports = ["*"]
